@@ -27,7 +27,9 @@ export const useMIDIControl = (
     if (!input) return;
     const id = uniqid();
     input.controlListeners[id] = handleControlMessage;
-    return () => delete input.controlListeners[id];
+    return () => { 
+      delete input.controlListeners[id]; 
+    };
   }, [input, controlFilter, channelFilter]);
   return value;
 };

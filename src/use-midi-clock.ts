@@ -37,7 +37,8 @@ export const useMIDIClock = (input: Input, division = 1) => {
     if (!input) return;
     const id = uniqid();
     input.clockListeners[id] = handleClockMessage();
-    return () => delete input.clockListeners[id];
+    return () => {delete input.clockListeners[id];
+    };
   }, [input]);
   return [step, isPlaying];
 };

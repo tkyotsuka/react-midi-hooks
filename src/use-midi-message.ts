@@ -15,7 +15,9 @@ export const useMIDIMessage = (input: Input) => {
     if (!input) return;
     const id = uniqid();
     input.messageListeners[id] = handleMessage;
-    return () => delete input.messageListeners[id];
+    return () => {
+      delete input.messageListeners[id];
+    };
   }, [input]);
 
   return message;
